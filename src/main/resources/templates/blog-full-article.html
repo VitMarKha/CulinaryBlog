@@ -18,12 +18,12 @@
       <br>
       <br>
       <form th:action="'/blog/' + ${article.getId()} + '/remove'" method="post">
-        <button class="btn btn-warning " type="submit">Удалить</button>
+        <button class="btn btn-danger " type="submit">Удалить</button>
       </form>
     </div>
   </div>
 </main>
 
-<footer th:insert="blocks/footer :: footer"></footer>
+<footer class="col-lg-8 mx-auto p-3 py-md-3" th:insert="blocks/footer :: footer"></footer>
 </body>
 </html>

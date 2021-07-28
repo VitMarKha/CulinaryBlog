@@ -9,8 +9,8 @@
 <header th:insert="blocks/header :: header"></header>
 
 <main>
-  <div class="container mt-5 mb-5">
-    <h1>Добавление статьи</h1><br>
+  <div class="container mt-5 mb-3">
+    <h1>Добавить статью</h1><br>
     <form action="/blog/add" method="post">
       <input type="text" name="title" placeholder="Название статьи" class="form-control"><br>
       <textarea type="text" name="text" placeholder="Текст статьи" class="form-control"></textarea><br>
@@ -19,6 +19,7 @@
   </div>
 </main>
 
-<footer th:insert="blocks/footer :: footer"></footer>
+<footer class="col-lg-8 mx-auto p-3 py-md-3" th:insert="blocks/footer :: footer"></footer>
+
 </body>
 </html>
