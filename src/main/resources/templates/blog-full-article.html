@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<main>
+  <div class="container mt-5">
+    <h1>Отдельный рецепт</h1>
+    <div th:each="article: ${post}" class="alert alert-info mt-2">
+      <h3 th:text="${article.getName()}"></h3>
+      <p th:text="${article.getText()}"></p>
+      <a class="btn btn-warning " th:href="'/blog/' + ${article.getId()} + '/edit'">Редактировать</a>
+      <br>
+      <br>
+      <form th:action="'/blog/' + ${article.getId()} + '/remove'" method="post">
+        <button class="btn btn-warning " type="submit">Удалить</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+</body>
+</html>
