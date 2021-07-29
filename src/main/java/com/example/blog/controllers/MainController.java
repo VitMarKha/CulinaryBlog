@@ -11,11 +11,5 @@ public class MainController {
         model.addAttribute("title", "Кулинарный блог");
         return "home";
     }
-
-    @GetMapping("/about")
-    public String about(Model model) {
-        model.addAttribute("title", "");
-        return "about";
-    }
 }
 
