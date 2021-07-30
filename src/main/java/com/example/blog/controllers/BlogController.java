@@ -19,6 +19,12 @@ public class BlogController {
     @Autowired
     private PostRepository postRepository;
 
+    @GetMapping("/")
+    public String home(Model model) {
+        model.addAttribute("title", "Кулинарный блог");
+        return "home";
+    }
+
     @GetMapping("/blog")
     public String blogMain(Model model) {
         Iterable<Post> posts = postRepository.findAll();
@@ -61,7 +67,8 @@ public class BlogController {
     }
 
     @PostMapping("/blog/{id}/edit")
-    public String blogPostEditUpdate(@PathVariable(value = "id") long id, @RequestParam String title, @RequestParam String text, Model model) {
+    public String blogPostEditUpdate(@PathVariable(value = "id") long id, @RequestParam String title,
+                                     @RequestParam String text, Model model) {
         Post post = postRepository.findById(id).orElseThrow();
         post.setName(title);
         post.setText(text);
