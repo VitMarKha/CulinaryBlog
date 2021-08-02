@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-import java.util.Optional;
-
 @Controller
 public class BlogController {
 
@@ -48,10 +45,8 @@ public class BlogController {
     public String blogFullArticle(@PathVariable(value = "id") long id, Model model) {
         if (!postRepository.existsById(id))
             return "redirect:/blog";
-        Optional<Post> post = postRepository.findById(id);
-        ArrayList<Post> res = new ArrayList<>();
-        post.ifPresent(res::add);
-        model.addAttribute("post", res);
+        Post post = postRepository.findById(id).orElseThrow();
+        model.addAttribute("post", post);
         return "blog-full-article";
     }
 
@@ -59,10 +54,8 @@ public class BlogController {
     public String blogFullArticleEdit(@PathVariable(value = "id") long id, Model model) {
         if (!postRepository.existsById(id))
             return "redirect:/blog";
-        Optional<Post> post = postRepository.findById(id);
-        ArrayList<Post> res = new ArrayList<>();
-        post.ifPresent(res::add);
-        model.addAttribute("post", res);
+        Post post = postRepository.findById(id).orElseThrow();
+        model.addAttribute("post", post);
         return "blog-full-article-edit";
     }
 
