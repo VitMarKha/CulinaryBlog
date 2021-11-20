@@ -7,5 +7,5 @@ The work was performed on Spring MVC with a connected MySQL database. The Bootst
 
 ## Usage
 
-* Start MAMP.
-* Start Project.
+1. Launch MAMP or manually connect to the database..
+2. Launch the project through IDEA or collect through the maven. By default, the project runs on port 8080.

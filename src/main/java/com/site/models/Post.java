@@ -1,4 +1,4 @@
-package com.example.blog.models;
+package com.site.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
